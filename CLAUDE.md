@@ -18,6 +18,20 @@
 
 Все skills находятся в `skills/`. Главный — `/ads-agent` (точка входа). Подробное описание каждого skill в его `SKILL.md`.
 
+Девять основных skills (ads-agent, ads-optimizer, ads-reporter, campaign-manager, targeting-expert, creative-copywriter, creative-analyzer, creative-image-generator, dashboard) установлены как skills аккаунта claude.ai. Оставшиеся три (`naming-rules`, `account-onboarding`, `account-delete`) подключены как project skills в `.claude/skills/` и загружаются автоматически в этой папке. Не копируй первые девять в `.claude/skills/`, чтобы не было дублей.
+
+## Пути к файлам
+
+Все данные лежат в корне репозитория. Если skill ссылается на старые пути, используй соответствие:
+
+| Путь в skill | Реальный путь |
+|---|---|
+| `.claude/ads-agent/config/...` | `config/...` |
+| `.claude/ads-agent/knowledge/...` и `knowledge/...` | `config/knowledge/...` |
+| `.claude/ads-agent/history/...` | `history/...` |
+
+Правила нейминга аккаунтов (`/naming-rules`) сохраняются в `config/naming/{account}_naming.md`.
+
 ## База знаний
 
 Перед принятием решений изучи:
