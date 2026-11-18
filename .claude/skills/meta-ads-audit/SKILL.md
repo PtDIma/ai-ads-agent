@@ -123,6 +123,6 @@ Time-series data provided for trend analysis.
 
 ## Data access
 
-В этом проекте данные берутся из MCP-сервера `meta-ads` (подключён к агенту). Перед анализом прочитай `config/ad_accounts.md` и бриф аккаунта из `config/briefs/`, правила из `config/knowledge/safety_rules.md`. Скилл только анализирует и рекомендует: любые изменения в кабинете (пауза, бюджеты, исключения аудиторий) делаются через `/ads-agent` или `/campaign-manager` с подтверждением пользователя и логом в `history/`.
+В этом проекте данные берутся из коннектора Meta Ads (`mcp__Meta_ADS__ads_*`): сущности и метрики через `ads_get_ad_entities` (имена полей сверяй в `ads_get_field_context`), тренды через `ads_insights_performance_trend`, аномалии через `ads_insights_anomaly_signal`. Полное соответствие старых инструментов новым в `CLAUDE.md`. Перед анализом прочитай `config/ad_accounts.md` и бриф аккаунта из `config/briefs/`, правила из `config/knowledge/safety_rules.md`. Скилл только анализирует и рекомендует: любые изменения в кабинете (пауза, бюджеты, исключения аудиторий) делаются через `/ads-agent` или `/campaign-manager` с подтверждением пользователя и логом в `history/`.
 
 _Источник: [irinabuht12-oss/marketing-skills](https://github.com/irinabuht12-oss/marketing-skills) (MIT), адаптировано под этот проект._

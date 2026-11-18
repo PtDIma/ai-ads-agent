@@ -174,7 +174,7 @@ config/
 
 **Q10: Загрузить существующие кампании из аккаунта?**
 
-Если да — вызови `get_campaigns(account_id, limit=50)` и покажи список:
+Если да — вызови `mcp__Meta_ADS__ads_get_ad_entities(ad_account_id="{account_id}", level="campaign", fields=["id","name","status","effective_status"], limit=50)` и покажи список:
 
 ```
 Найдены кампании:
