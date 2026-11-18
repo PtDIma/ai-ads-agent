@@ -111,10 +111,11 @@ config/
 
 1. Прочитай справочник `config/knowledge/geo_locations.md`
 2. Найди указанные города/страны в таблицах
-3. Если город НЕ найден в справочнике — вызови MCP:
+3. Если город НЕ найден в справочнике — поищи его ключ в `targeting.geo_locations` существующих адсетов:
    ```
-   search_geo_locations(query="{город}", location_types=["city"])
+   mcp__Meta_ADS__ads_get_ad_entities(ad_account_id="{account_id}", level="adset", fields=["id","name","targeting"])
    ```
+   В коннекторе Meta Ads нет поиска гео. Если ключа нет и там, попроси пользователя взять его в Ads Manager (или таргетируй страну/регион кодом). Не выдумывай ID.
 4. Сохрани для брифа:
    - `city_key` — ID города
    - `region_id` — ID региона (если есть)
@@ -454,8 +455,9 @@ ROAS (Return on Ad Spend) — сколько долларов выручки п�
 После создания файлов проверь доступ к API:
 
 ```python
-# Проверка доступа
-campaigns = get_campaigns(account_id="{account_id}", limit=5)
+# Проверка доступа (коннектор Meta Ads, ad_account_id без "act_")
+mcp__Meta_ADS__ads_get_ad_accounts()   # аккаунт есть в списке и is_queryable=true
+mcp__Meta_ADS__ads_get_ad_entities(ad_account_id="{account_id}", level="campaign", limit=5)
 ```
 
 Выведи результат:
